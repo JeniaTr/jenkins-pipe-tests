@@ -3,16 +3,15 @@
 properties([disableConcurrentBuilds()])
 
 pipeline {
-    agent { 
+    agent {
         label 'master'
-        }
-        stage("create docker image") {
+    }
+        stage('create docker image') {
             steps {
-                echo " ============== start building image =================="
-                dir ('docker/toolbox') {
-                	sh 'docker build -t semaev/toolbox:latest . '
-                }
+                    echo ' ============== start building image =================='
+                    dir ('docker/toolbox') {
+                    sh 'docker build -t semaev/toolbox:latest . '
+                    }
             }
         }
-    }
 }
